@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+         //return rock,paper or scissor
+         function computerPlay(){
+            //generate a random number
+            function random(){
+          return Math.floor(Math.random()*3)
+            }
+            if (random() == 0){
+              return "rock"
+            }else if (random() == 1){
+              return "paper"
+            }else{
+              return "scissor"
+            }
+                        }
+            let computerSelection = computerPlay();
+            console.log(computerSelection)
+
+            function playerPlay(){
+                return  prompt("make a choise")
+            }
+            let playerSelection = playerPlay();
+            console.log(playerSelection);
+
+        
+        
+        
+        </script>
+    </head>
+</html>
