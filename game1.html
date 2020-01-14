@@ -2,11 +2,57 @@
 <html>
     <head>
         <script>
-         function game1(playerSelection , computerSelection){
-             if (playerSelection.indexOf(0) > computerSelection.indexOf(0)){
+            //return rock,paper or scissor
+          function computerPlay(){
+            //generate a random number
+            function random(){
+          return Math.floor(Math.random()*3)
+            }
+            if (random() == 0){
+              return "rock"
+            }else if (random() == 1){
+              return "paper"
+            }else{
+              return "scissor"
+            }
+                        }
 
+let computerSelection = computerPlay();
+//console.log(computerPlay());
+console.log(computerSelection);
+
+
+let playerSelection = prompt("player choose");
+let pS = playerSelection.toLowerCase();
+console.log(pS);
+
+
+
+function game1(pS, computerSelection){
+             //this check for P>R
+             if (pS === "paper" && computerSelection === "rock"){
+                return "You won! Paper beats rock" 
+                //this check for P<S
+             }else if (pS === "paper" && computerSelection === "scissor"){
+                 return "You lose! Scissor beats paper"
+                //this check for R>S
+             }else if (pS === "rock" && computerSelection === "scissor"){
+                 return "You won! Rock beats scissor"
+                //this check for R<P
+             }else if (pS === "rock" && computerSelection === "paper"){
+                 return "You lose! Paper beats rock"
+                //this check for S<R
+             }else if (pS === "scissor" && computerSelection === "rock"){
+                 return "You lose! Rock beats scissor"
+                //this check for S>P
+             }else if (pS === "scissor" && computerSelection === "paper"){
+                 return "You won! Scissor beats paper"
+                //this check for even
+             }else if (pS === computerSelection){
+                 return "That is even"
              }
          }
+         console.log(game1(pS,computerSelection))
 
         </script>
     </head>
