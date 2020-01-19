@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html>
     <script>
-        //game of rock,paper or scissor
-              function computerPlay(){
-                function random(){
-                return Math.floor(Math.random()*3)
-                }
-              if (random() == 0){
-                return "rock"
-              }else if (random() == 1){
-                return "paper"
-              }else{
-                return "scissor"
-              }
-            }  
-      
-      let computerSelection = computerPlay();
-     alert(computerSelection);
-      //alert(computerPlay());
-      
-      let pS= prompt("player choose").toLowerCase();
-      alert(pS);
-      
-    
-    
-    
-    function gameX5(pS, computerPlay ) {
-
-    function game1(pS, computerSelection){
-                   //this check for P>R
-                   if (pS === "paper" && computerSelection === "rock"){
-                      return "You won! Paper beats rock" 
-                      //this check for P<S
-                   }else if (pS === "paper" && computerSelection === "scissor"){
-                       return "You lose! Scissor beats paper"
-                      //this check for R>S
-                   }else if (pS === "rock" && computerSelection === "scissor"){
-                       return "You won! Rock beats scissor"
-                      //this check for R<P
-                   }else if (pS === "rock" && computerSelection === "paper"){
-                       return "You lose! Paper beats rock"
-                      //this check for S<R
-                   }else if (pS === "scissor" && computerSelection === "rock"){
-                       return "You lose! Rock beats scissor"
-                      //this check for S>P
-                   }else if (pS === "scissor" && computerSelection === "paper"){
-                       return "You won! Scissor beats paper"
-                      //this check for even
-                   }else if (pS === computerSelection){
-                       return "That is even"
-                   }
-               }
-               alert(game1(pS,computerSelection))
-
-
-
-
-
-//fine della funzione gameX5
+//this is the function that make the computer play
+function computerPlay(){
+    function random(){
+        return Math.floor(Math.random()*3)
     }
+if (random() == 0){
+    return "rock"
+}else if (random() == 1){
+    return "paper"
+}else{
+    return "scissor"
+}
+}
+      
+//this is the function that make the player selection    
+function playerPlay(){
+    return  prompt("make a choise").toLowerCase()
+}
+
+//this variable check the victories of a
+let checkA =0;
+//this variable check the victories of b
+let checkB =0;
+
+//this is 1 game function
+function game1(a,b){
+    //this check for P>R
+    if (a  === "paper" && b === "rock"){
+      checkA++
+        return "You won! Paper beats rock" 
+    //this check for P<S
+    }else if (a  === "paper" && b === "scissor"){
+      checkB++
+        return "You lose! Scissor beats paper"
+    //this check for R>S
+    }else if (a === "rock" && b === "scissor"){
+      checkA++
+        return "You won! Rock beats scissor" 
+    //this check for R<P
+    }else if (a === "rock" && b === "paper"){
+      checkB++
+        return "You lose! Paper beats rock" 
+    //this check for S<R
+    }else if (a === "scissor" && b=== "rock"){
+      checkB++
+         return "You lose! Rock beats scissor" 
+    //this check for S>P
+    }else if (a=== "scissor" && b === "paper"){
+      checkA++
+        return "You won! Scissor beats paper" 
+    //this check for even
+    }else if (a === b){
+        return "That is even"
+    }
+}
+
+//repeat 5 time!
+for (let i=1; i<6; i++){
+
+        alert("Game " + i +" "+ game1(playerPlay(),computerPlay()));
+}
+
+//check the winner
+function checker(checkB , checkA){
+if (checkA > checkB){
+        alert("you won, congratulations!")
+    }else if(checkB > checkA){
+        alert("the computer won, try one more time")
+    }else if(checkA === undefined || checkB === undefined || checkB === null || checkB === null){
+        alert("we have a problem")
+    }else{
+        alert("it is a tie!")
+    }
+}
+alert(checkB);
+alert(checkA);
+alert(checker(checkB, checkA))
+
      
       </script>
 </html>
