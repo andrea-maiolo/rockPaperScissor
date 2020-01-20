@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <script>
-//this is the function that make the computer play
+
 function computerPlay(){
     function random(){
         return Math.floor(Math.random()*3)
@@ -15,7 +15,7 @@ if (random() == 0){
 }
 }
       
-//this is the function that make the player selection    
+   
 function playerPlay(){
     return  prompt("make a choise").toLowerCase()
 }
@@ -25,7 +25,7 @@ let checkA =0;
 //this variable check the victories of b
 let checkB =0;
 
-//this is 1 game function
+
 function game1(a,b){
     //this check for P>R
     if (a  === "paper" && b === "rock"){
@@ -57,27 +57,26 @@ function game1(a,b){
     }
 }
 
-//repeat 5 time!
+//start with i=1 so it can log out game1,which sounds better than game0
 for (let i=1; i<6; i++){
 
-        alert("Game " + i +" "+ game1(playerPlay(),computerPlay()));
+        console.log("Game " + i +" "+ game1(playerPlay(),computerPlay()));
 }
 
-//check the winner
+
 function checker(checkB , checkA){
 if (checkA > checkB){
-        alert("you won, congratulations!")
+        console.log("You won, congratulations!")
     }else if(checkB > checkA){
-        alert("the computer won, try one more time")
-    }else if(checkA === undefined || checkB === undefined || checkB === null || checkB === null){
-        alert("we have a problem")
+        console.log("The computer won, try one more time")
+    }else if(checkA === undefined || checkB === undefined || checkA === null || checkB === null){
+        console.log("Huston, we have a problem")
     }else{
-        alert("it is a tie!")
+        console.log("It's a tie!")
     }
 }
-alert(checkB);
-alert(checkA);
-alert(checker(checkB, checkA))
+
+checker(checkB, checkA);
 
      
       </script>
