@@ -1,32 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <!--  <link rel="stylesheet" href="/home/andrea/odin_project/newRPS/reset.css">-->
-        <link rel="stylesheet" href="/home/andrea/odin_project/newRPS/style.css">
-    </head>
-    <body>
-        <div class=top>
-        <button id="rock">ROCK</button>
-        <button id="scissor">SCISSOR</button>
-        <button id="paper">PAPER</button>
-        </div>
-        <div class=results>
-            <p>RESULTS</p>
-        </div>
-        <script>
-        
+    <script>
 
-        function show(a){
-            console.log(a);
-        }
-        const buttons =document.querySelectorAll('button');
-        buttons.forEach(button => button.addEventListener('onclick', show(button)));
-
-
-
-
-
-            function computerPlay(){
+function computerPlay(){
     function random(){
         return Math.floor(Math.random()*3)
     }
@@ -38,7 +14,11 @@ if (random() == 0){
     return "scissor"
 }
 }
-
+      
+   
+function playerPlay(){
+    return  prompt("make a choise").toLowerCase()
+}
 
 //this variable check the victories of a
 let checkA =0;
@@ -78,9 +58,10 @@ function game1(a,b){
 }
 
 //start with i=1 so it can log out game1,which sounds better than game0
-//for (let i=1; i<6; i++){
-//     console.log("Game " + i +" "+ game1(playerPlay(),computerPlay()));
-//}
+for (let i=1; i<6; i++){
+
+        console.log("Game " + i +" "+ game1(playerPlay(),computerPlay()));
+}
 
 
 function checker(checkB , checkA){
@@ -89,13 +70,14 @@ if (checkA > checkB){
     }else if(checkB > checkA){
         console.log("The computer won, try one more time")
     }else if(checkA === undefined || checkB === undefined || checkA === null || checkB === null){
-        console.log("Huston, we have a problem...")
+        console.log("Huston, we have a problem")
     }else{
         console.log("It's a tie!")
     }
 }
 
 checker(checkB, checkA);
-        </script>
-    </body>
+
+     
+      </script>
 </html>

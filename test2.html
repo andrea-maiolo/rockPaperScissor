@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Make a choice!</h1>
+        <div>
+        <button id='rock'>rock</button>
+        <button id='paper'>paper</button>
+        <button id='scissor'>scissor</button>
+        </div>
+        <div id='counter'>
+                Player:
+                Computer:
+        </div>
+        <div id ="results">Results
+        </div>
+    </body>
+    <script>
+        
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', gioco)
+        });
+
+        function gioco(){
+            console.log(game1(playerPlay(),computerPlay()))
+            results.appendChild(game);
+        }        
+
+        function computerPlay(){
+            function random(){
+            return Math.floor(Math.random()*3)
+            }
+                if (random() == 0){
+                p2.textContent= "rock"
+                }else if (random() == 1){
+                    p2.textContent=  "paper"
+                }else{
+                    p2.textContent= "scissor"
+            }
+            results.appendChild(p2);
+        }
+
+        const rock = document.querySelector('#rock');
+        rock.addEventListener('click', playerPlay);
+        const paper = document.querySelector('#paper');
+        paper.addEventListener('click', playerPlay);
+        const scissor = document.querySelector('#scissor');
+        scissor.addEventListener('click', playerPlay);
+        const results = document.querySelector('#results');
+        const para = document.createElement('p');
+        const p2 = document.createElement('p');
+        const game = document.createElement('p');
+
+        function playerPlay(e){  
+           let  pSelection = (this.id);
+           para.textContent = pSelection ; 
+           results.appendChild(para);
+        };
+
+        function game1(p,c){
+            //this check for P>R
+            if (p  === "paper" && c === "rock"){
+                checkA++
+                return "You won! Paper beats rock" 
+            //this check for P<S
+            }else if (p  === "paper" && c === "scissor"){
+                checkB++
+                return "You lose! Scissor beats paper"
+            //this check for R>S
+            }else if (p === "rock" && c === "scissor"){
+                checkA++
+                return "You won! Rock beats scissor" 
+            //this check for R<P
+            }else if (p === "rock" && c === "paper"){
+                checkB++
+                return "You lose! Paper beats rock" 
+            //this check for S<R
+            }else if (p === "scissor" && c === "rock"){
+                checkB++
+                return "You lose! Rock beats scissor" 
+            //this check for S>P
+            }else if (p === "scissor" && c === "paper"){
+                checkA++
+                return "You won! Scissor beats paper" 
+            //this check for even
+            }else if (p === c){
+                return "That is even"
+            }
+        }
+
+
+// //         Go back to your “Rock Paper Scissors” game from a previous lesson and give it a simple UI
+//  so that the player can play the game by clicking on buttons rather than typing their answer in a prompt.
+// // Copy your original code into a new file so you don’t lose it.
+// // For now, remove the logic that plays exactly five rounds.
+// // Create three buttons, one for each selection. Add an event listener to the buttons that calls 
+// your playRound function with the correct playerSelection every time a button is clicked. 
+// (you can keep the console.logs for this step)
+// // Add a div for displaying results and change all of your console.logs into DOM methods.
+// // Display the running score, and announce a winner of the game once one player reaches 5 points.
+// // You will likely have to refactor (rework/rewrite) your original code to make it work for this.
+//  That’s OK! Reworking old code is an important part of the programmer’s life.
+// // Don’t forget to go back and add your new version to the original Rock Paper Scissors Project!
+
+</script>
+
+</html>
