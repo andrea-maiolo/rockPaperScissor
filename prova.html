@@ -9,7 +9,7 @@
             <button id='paper'>Paper</button>
             <button id='scissor'>Scissor</button>
         </div>
-        <div class="results">
+        <div id="results">
             <p id="player">Player:</p>
             <p id="computer">Computer:</p>
         </div>
@@ -26,7 +26,7 @@
     const buttons = document.querySelectorAll('button');
         buttons.forEach(button => button.addEventListener('click' , start));
 
-    const results = document.querySelector('.results');
+    const results = document.querySelector('#results');
     const para = document.createElement('p');
     
 
@@ -43,7 +43,7 @@
             return "scissor"
         }
     }
-  //var in wich playerSelection is stored    
+  //var in which playerSelection is stored    
     var a 
     function playerPlay(e){ 
         a = this.id; 
@@ -80,23 +80,39 @@
     }
  
     function start(event){
-        // console.log(game1(a,computerPlay()))
-        para.textContent = (game1(a,computerPlay()))
+        if (checkB == 5 || checkA == 5){
+            return over
+        }else {para.textContent = (game1(a,computerPlay()))
         results.appendChild(para);
-    }
+        player.textContent = checkA;
+        computer.textContent = checkB;
+            }
+
+        }
+    
+        // const over = document.createElement("button");
+        // over.innerHTML('gameover');
+        // results.appendChild(over);
+        // console.log(over);
+    
 
         
     //this variable check the victories of user
     let checkA =0;
+    const player = document.querySelector('#player');
+    player.textContent = checkA;
+
     //this variable check the victories of computer
     let checkB =0;
+    const computer = document.querySelector('#computer');
+    computer.textContent = checkB;
 
 
-// //start with i=1 so it can log out game1,which sounds better than game0
 // for (let i=1; i<6; i++){
 
 //         console.log("Game " + i +" "+ game1(playerPlay(),computerPlay()));
 // }
+
 
 
 // function checker(checkB , checkA){
