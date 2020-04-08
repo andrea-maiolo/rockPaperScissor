@@ -4,7 +4,7 @@
         <div id="title">
             <h1>Make a choice!</h1>
         </div>
-        <div class="selection">
+        <div id="selection">
             <button id='rock'>Rock</button>
             <button id='paper'>Paper</button>
             <button id='scissor'>Scissor</button>
@@ -48,6 +48,7 @@
     function playerPlay(e){ 
         a = this.id; 
     }
+
     function game1(p,c){
         //this check for P>R
         if (p  === "paper" && c === "rock"){
@@ -81,39 +82,24 @@
  
     function start(event){
         if (checkB == 5 || checkA == 5){
-            return over
+            return //you need to call the checker function
         }else {para.textContent = (game1(a,computerPlay()))
         results.appendChild(para);
-        player.textContent = checkA;
-        computer.textContent = checkB;
+        player.textContent = "Player: " + checkA;
+        computer.textContent =  "Computer: " + checkB;
             }
 
         }
-    
-        // const over = document.createElement("button");
-        // over.innerHTML('gameover');
-        // results.appendChild(over);
-        // console.log(over);
-    
-
-        
+      
     //this variable check the victories of user
     let checkA =0;
     const player = document.querySelector('#player');
-    player.textContent = checkA;
+    player.textContent = 'Player: ' + checkA;
 
     //this variable check the victories of computer
     let checkB =0;
     const computer = document.querySelector('#computer');
-    computer.textContent = checkB;
-
-
-// for (let i=1; i<6; i++){
-
-//         console.log("Game " + i +" "+ game1(playerPlay(),computerPlay()));
-// }
-
-
+    computer.textContent = 'Computer: ' + checkB;
 
 // function checker(checkB , checkA){
 // if (checkA > checkB){
@@ -129,6 +115,23 @@
 
 // checker(checkB, checkA);
 
-     
+const over = document.createElement('button');
+
+
+//this needs to create abutton for reset the game
+function checker(checkA , checkB){
+    if (checkA > checkB){
+        over.textContent =  "You won, congratulations!";
+        results.appendChild(over);
+        }else if (checkB > checkA){
+            over.textContent = "The computer won, try one more time"
+results.appendChild(over);
+        }else if(checkA === undefined || checkB === undefined || checkA === null || checkB === null){
+over.textContent = "Huston, we have a problem";
+results.appendChild(over);
+}else{
+over.textContent = "It's a tie!";
+results.appendChild(over);
+}}
       </script>
 </html>
