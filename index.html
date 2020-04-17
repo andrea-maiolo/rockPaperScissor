@@ -1,101 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <!--  <link rel="stylesheet" href="/home/andrea/odin_project/newRPS/reset.css">-->
-        <link rel="stylesheet" href="/home/andrea/odin_project/newRPS/style.css">
-    </head>
-    <body>
-        <div class=top>
-        <button id="rock">ROCK</button>
-        <button id="scissor">SCISSOR</button>
-        <button id="paper">PAPER</button>
-        </div>
-        <div class=results>
-            <p>RESULTS</p>
-        </div>
-        <script>
-        
 
-        function show(a){
-            console.log(a);
-        }
-        const buttons =document.querySelectorAll('button');
-        buttons.forEach(button => button.addEventListener('onclick', show(button)));
+<head>
+	<!-- <link rel="stylesheet" href="/home/andrea/odin_project/rockPaperScissor/style.css"> -->
+	<link rel="stylesheet" href ="/home/andrea/odin_project/rockPaperScissor/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+</head>
 
+<body>
+	<div id="title">
+		<h1>Make a choice!</h1>
+	</div>
+	<div id="selection">
+		<button id='rock'>Rock</button>
+		<button id='paper'>Paper</button>
+		<button id='scissor'>Scissor</button>
+	</div>
+	<div id="results">
+		<p id="player"></p>
+		<p id="computer"></p>
+	</div>
+	<div id = "gameover">
 
+	</div>
+</body>
+<script src=main.js>
 
+</script>
 
-
-            function computerPlay(){
-    function random(){
-        return Math.floor(Math.random()*3)
-    }
-if (random() == 0){
-    return "rock"
-}else if (random() == 1){
-    return "paper"
-}else{
-    return "scissor"
-}
-}
-
-
-//this variable check the victories of a
-let checkA =0;
-//this variable check the victories of b
-let checkB =0;
-
-
-function game1(a,b){
-    //this check for P>R
-    if (a  === "paper" && b === "rock"){
-      checkA++
-        return "You won! Paper beats rock" 
-    //this check for P<S
-    }else if (a  === "paper" && b === "scissor"){
-      checkB++
-        return "You lose! Scissor beats paper"
-    //this check for R>S
-    }else if (a === "rock" && b === "scissor"){
-      checkA++
-        return "You won! Rock beats scissor" 
-    //this check for R<P
-    }else if (a === "rock" && b === "paper"){
-      checkB++
-        return "You lose! Paper beats rock" 
-    //this check for S<R
-    }else if (a === "scissor" && b=== "rock"){
-      checkB++
-         return "You lose! Rock beats scissor" 
-    //this check for S>P
-    }else if (a=== "scissor" && b === "paper"){
-      checkA++
-        return "You won! Scissor beats paper" 
-    //this check for even
-    }else if (a === b){
-        return "That is even"
-    }
-}
-
-//start with i=1 so it can log out game1,which sounds better than game0
-//for (let i=1; i<6; i++){
-//     console.log("Game " + i +" "+ game1(playerPlay(),computerPlay()));
-//}
-
-
-function checker(checkB , checkA){
-if (checkA > checkB){
-        console.log("You won, congratulations!")
-    }else if(checkB > checkA){
-        console.log("The computer won, try one more time")
-    }else if(checkA === undefined || checkB === undefined || checkA === null || checkB === null){
-        console.log("Huston, we have a problem...")
-    }else{
-        console.log("It's a tie!")
-    }
-}
-
-checker(checkB, checkA);
-        </script>
-    </body>
 </html>
