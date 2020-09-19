@@ -107,8 +107,5 @@ function start() {
 		paper.removeEventListener('click', playerPlay);
 		scissor.removeEventListener('click', playerPlay);
 		over.addEventListener('click', reset);
-	} else {
-		//do something with this??
-		console.log('keep playing')
 	}
 }
