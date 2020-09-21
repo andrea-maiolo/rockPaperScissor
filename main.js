@@ -1,13 +1,13 @@
+//this are the variables for the buttons 
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', playerPlay);
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', playerPlay);
 const scissor = document.querySelector('#scissor');
 scissor.addEventListener('click', playerPlay);
-
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', start));
-
+//thise are the creation of the results
 const gameover = document.querySelector('#gameover');
 const results = document.querySelector('#results');
 const para = document.createElement('p');
@@ -15,24 +15,41 @@ const over = document.createElement('button');
 over.style.display = 'none';
 over.setAttribute('id', 'overButton')
 
-var playerSelection
+let playerSelection
 function playerPlay(e) {
 	playerSelection = this.id;
+	playerImageChange(this.id);
 }
-
+//Change player's selection image
+function playerImageChange(value) {
+	let playerImg = document.querySelector('.player-selection');
+	if (value == "rock") {
+			playerImg.src = 'style/rock.svg';
+	}else if (value == "paper"){
+			playerImg.src = 'style/paper.svg';
+	}else if (value == "scissor"){
+			playerImg.src = 'style/scissors.svg';
+	}
+}
+//Generate a random selection for computer
 function computerPlay() {
-	function random() {
-		return Math.floor(Math.random() * 3)
-	}
-	if (random() == 0) {
-		return "rock"
-	} else if (random() == 1) {
-		return "paper"
-	} else {
-		return "scissor"
+	const items = ["rock", "paper", "scissor"];
+	let pc =  items[Math.floor(Math.random() * 3)];
+	computerImageChange(pc);
+	return pc;
+}
+//Change computer's selection image
+function computerImageChange(value) {
+	let computerImg = document.querySelector('.computer-selection');
+	if (value == "rock") {
+			computerImg.src = 'style/rock.svg';
+	}else if (value == "paper"){
+			computerImg.src = 'style/paper.svg';
+	}else if (value == "scissor"){
+			computerImg.src = 'style/scissors.svg';
 	}
 }
-
+//play a game, p for player and c for computer
 function game1(p, c) {
 	if (p === "paper" && c === "rock") {
 		userScore++
@@ -56,21 +73,21 @@ function game1(p, c) {
 		return "That is even"
 	}
 }
-
+//scores
 let userScore = 0;
 const player = document.querySelector('#player');
 player.textContent = 'Player: ' + userScore;
 let computerScore = 0;
 const computer = document.querySelector('#computer');
 computer.textContent = 'Computer: ' + computerScore;
-
-function checker(a, b) {
-	if (a == 5) {
+//check who won
+function checker(p, c) {
+	if (p == 3) {
 		over.innerHTML = 'You won, congratulations!';
 		over.style.display = 'block';
 		gameover.appendChild(over);
 		return true
-	} else if (b == 5) {
+	} else if (c == 3) {
 		over.innerHTML = 'The computer won, try one more time';
 		over.style.display = 'block';
 		gameover.appendChild(over);
@@ -79,7 +96,7 @@ function checker(a, b) {
 		return false
 	}
 }
-
+//play again
 function reset() {
 	userScore = 0;
 	player.textContent = 'Player: ' + userScore;
@@ -93,7 +110,7 @@ function reset() {
 	scissor.addEventListener('click', playerPlay);
 	buttons.forEach(button => button.addEventListener('click', start));
 }
-
+//start game
 function start() {
 	let begin = game1(playerSelection, computerPlay());
 	para.textContent = begin;

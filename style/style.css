@@ -1,68 +1,34 @@
 body{
-    background-color: rgb(156, 174, 181);
+    background-color: #9caeb5;
     font-family: 'Girassol', cursive, 'Franklin Gothic Medium';
 }
 h1{
-    font-size: 35px;
+    font-size: 2em;
     text-align: center;
     color: black;
+    margin-top:20px;
+    margin-bottom: 0;
+}
+h2{
+    text-align: center;
+}
+#intro{
+    margin: auto;
 }
 p{
     font-size: 20px;
     text-align: center;
     color: black;
 }
-#rock{
-    background-color: rgb(59,100,146);
+.buttons{
+    background-color:#3b6492;
     border: none;
-    color:black;
     padding: 41px 35px;
-    text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 50%;
-    font-family: 'Girassol', cursive, 'Franklin Gothic Medium';
-}
-#scissor{
-    background-color: rgb(59,100,146);
-    border: none;
-    color: black;
-    padding: 40px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-family: 'Girassol', cursive, 'Franklin Gothic Medium';
-}
-#paper{
-    background-color: rgb(59,100,146);
-    border: 20px;
-    color: black;
-    padding: 40px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-family: 'Girassol', cursive, 'Franklin Gothic Medium';
-
-}
-#rock:hover{
-	background-image: url(https://cdn.shopify.com/s/files/1/1661/5331/products/rocks3_800x.jpg?v=1527199350);
-}
-#paper:hover{
-    background-image: url(http://4.bp.blogspot.com/-NR2KgqwqUBQ/VFuZHB9JsfI/AAAAAAAAAes/Dr-pE1fCJAA/s1600/Paper_Texture_by_Spiteful_Pie_Stock.jpg);
-}
-#scissor:hover{
-    background-image: url(http://4.bp.blogspot.com/_abe0p86QmVA/RpeFTdFh1TI/AAAAAAAAAUU/D6cClmJV3z0/s320/scissors.jpg);
+    border-radius: 20%;
+    outline: 0;
 }
 #player{
     color: black;
@@ -86,8 +52,72 @@ p{
     justify-content: center;
 }
 #overButton {
-    background-color: rgb(59,100,146);
+    background-color: #3b6492;
     font-family: 'Girassol', cursive, 'Franklin Gothic Medium';
     font-size: larger;
     color: black;
 }
+.choice{
+    margin-top: 20px;;
+}
+.play-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .play-box {
+    margin: 20px;
+    width: 190px;
+    text-align: center;
+  }
+  
+  .vertical-line {
+    width: 0.5%;
+    margin: 20px 100px;
+    background-color: white;
+  }
+ /*Footer*/ 
+  footer {
+	padding: 10px;
+	width: 100%;
+	font-size: .7em;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+  }
+.small-text {
+  font-size: 1em;
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+/*Media queries*/
+@media (max-width: 700px) {
+    .page-title {
+      font-size: 2.5em;
+    }
+    
+    .vertical-line {
+      margin: 20px 20px;
+    }
+  
+    .play-box {
+      font-size: 80%;
+    }
+  
+    .rock, 
+    .paper,
+    .scissor {
+      width: 6em;
+      height: 6em;
+    }
+  
+    .restart-button {
+      width: initial;
+      font-size: 1em;
+    }
+  
+    .description {
+      font-size: .7em;
+    }
+  }

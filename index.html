@@ -1,26 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<link rel="stylesheet" href="style/reset.css">
+	<meta charset="UTF-8">
+    <meta name="description" content="Rock Paper Scissors game">
+    <meta name="keywords" content="Rock Paper Scissors game">
+    <meta name="author" content="Andrea Maiolo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rock Paper Scissors game</title>
 	<link rel="stylesheet" href ="style/style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
 </head>
-
 <body>
-	<div id="title">
-		<h1>Make a choice!</h1>
+<header>
+	<h1>ROCK PAPER SCISSORS</h1>
+	<p id="intro">win 3 rounds and you win the match</p>
+</header>
+<section class="makeSelection">
+	<div class="choice">
+		<h2>Make a choice!</h2>
 	</div>
 	<div id="selection">
-		<button id='rock'>Rock</button>
-		<button id='paper'>Paper</button>
-		<button id='scissor'>Scissor</button>
+		<button type="button" class="buttons" id='rock'>
+			<img src="style/rock.svg" width="50px" height="50px">
+		</button>
+		<button type="button" class="buttons" id='paper'>
+			<img src="style/paper.svg" width="50px" height="50px">
+		</button>
+		<button type="button" class="buttons" id='scissor'>
+			<img src="style/scissors.svg" width="50px" height="50px">
+		</button>
 	</div>
-	<div id="results">
+</section>
+<section class="play-container">
+    <div class="play-box">
 		<p id="player"></p>
+      <img class="player-selection" src="style/rock.svg" width="50px" height="50px">
+    </div>
+    <div class="vertical-line"></div>
+    <div class="play-box">
 		<p id="computer"></p>
+      <img class="computer-selection" src="style/rock.svg" width="50px" height="50px">
+    </div>
+  </section>
+<section>
+	<div id="results">
 	</div>
 	<div id = "gameover"></div>
+</section>
+<footer>
+	<p>
+		Developed by Andrea Maiolo with 
+		<img src="style/coding.svg" width="30px" height="auto">
+		and
+		<img src="style/like.svg" width="30px" height="auto">
+	</p>
+		<span class="small-text">
+		Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+		<div>Icons made by <a href="https://www.flaticon.local/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.local/" title="Flaticon">www.flaticon.local</a></div>
+		</span>
+  </footer>
 </body>
 <script src=main.js>
 </script>
